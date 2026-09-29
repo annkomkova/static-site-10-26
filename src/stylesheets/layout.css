@@ -1,12 +1,31 @@
 * {
   box-sizing: border-box;
 }
+:root {
+  --c-cream: #f7f1ef;
+  --c-green: #1e3a2b;
+  --c-pink: #ffc2d1;
+  --c-liliac: #b9a6f2;
+  --c-pink-soft: #ffc1d1;
+  --c-butter: #ffd66b;
+  --c-lime: #c9e265;
+  --c-peach: #ffc98b;
+
+  --gap: clamp(16px, 4vw, 56px);
+  --radius: clamp(16px, 2vw, 28px);
+}
 html {
   font-size: calc(1vw / 14.4);
 }
 body {
   font-family: 'PT Root UI', Arial, Helvetica, sans-serif;
   font-size: 18rem;
+}
+.index {
+  font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  background-color: var(--c-cream);
+  color: var(--c-green);
+  line-height: 1.5;
 }
 h1,
 h2 {
@@ -15,6 +34,11 @@ h2 {
 h3 {
   font-weight: 500;
 }
+svg {
+  display: block;
+}
+
+/* стилия для статьи */
 .article__header,
 .article__content {
   max-width: 1000rem;
@@ -78,4 +102,34 @@ img + .article__content--header {
 .article__content--list {
   list-style-type: square;
   margin-left: 20rem;
+}
+
+/* стили для заглушки (главная) */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 var(--gap);
+  display: flex;
+  width: 100%;
+  height: 82rem;
+  align-items: center;
+  gap: var(--gap);
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+  font-weight: 800;
+  font-size: 20rem;
+}
+.logo__icon {
+  width: 30rem;
+  height: 30rem;
+  fill: var(--c-pink);
+  transition: transform 0.8s ease-out;
+}
+.header__logo:hover .logo__icon {
+  transform: rotate(180deg) scale(1.1);
 }
