@@ -51,21 +51,78 @@
       </nav>
     </header>
 
-    <!-- подключение сборщика почт (нужна регистрация на formspree) -->
-    <!-- modify this form HTML and place wherever you want your form -->
-    <div data-fs-success>Thanks for your submission!</div>
-    <div data-fs-error>Oops! There was a problem submitting your form.</div>
-    <form id="my-form">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" data-fs-field />
-      <span data-fs-error="email"></span>
-      <label for="message">Message:</label>
-      <input type="text" id="message" name="message" data-fs-field />
-      <span data-fs-error="message"></span>
-      <button type="submit" data-fs-submit-btn>Submit</button>
-    </form>
+    <section class="hero section theme theme--light">
+      <p class="hero__eyebrow split split--words">
+        учебный проект / группа Б25ДЗ10
+      </p>
 
-    <!-- Place these scripts at the end of the body tag -->
+      <h1 class="hero__title">
+        <span class="hero__line split--hover">цветоч</span>
+        <span class="hero__line">
+          <span class="split--hover">ный</span>
+          <span class="hero__flower">✿</span>
+        </span>
+      </h1>
+    </section>
+
+    <section class="form section theme theme--pink" id="form">
+      <div class="section__head">
+        <p class="reveal section__label">На связи</p>
+        <p class="reveal section__note">без спама, только письмо о запуске</p>
+      </div>
+
+      <div class="form__grid">
+        <div class="form__intro">
+          <h2 class="form__title">Оставайтесь на&nbsp;связи</h2>
+          <p class="form__text reveal">
+            Напишите нам — пришлём письмо, как только откроемся,
+            и&nbsp;поделимся первыми статьями раньше всех
+          </p>
+        </div>
+
+        <div class="form__wrapper reveal">
+          <form id="my-form">
+            <div class="form__field">
+              <input
+                class="form__input"
+                type="text"
+                id="message"
+                name="message"
+                data-fs-field
+                placeholder=""
+              />
+              <label class="form__label" for="message">Как вас зовут</label>
+              <span data-fs-error="message"></span>
+            </div>
+
+            <div class="form__field">
+              <input
+                class="form__input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder=""
+                data-fs-field
+              />
+              <label class="form__label" for="email">Email</label>
+              <span data-fs-error="email"></span>
+            </div>
+
+            <button
+              class="form__button button"
+              type="submit"
+              data-fs-submit-btn
+            >
+              Отправить <span>✿</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div data-fs-success>Thanks for your submission!</div>
+    <div data-fs-error>Oops! There was a problem submitting your form.</div> -->
+
     <script>
       window.formspree =
         window.formspree ||
