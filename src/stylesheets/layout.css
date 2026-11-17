@@ -366,6 +366,7 @@ img + .article__content--header {
 .marquee {
   overflow-x: hidden;
   padding: clamp(40px, 6vw, 80px) 0;
+  transition: transform 0.3s ease-out;
 }
 .marquee__row {
   display: flex;
@@ -373,8 +374,8 @@ img + .article__content--header {
   background-color: var(--c-green);
   color: var(--c-cream);
   transform: rotate(-3deg);
-  width: 110%;
-  margin-left: -5%;
+  width: 150%;
+  margin-left: -25%;
 }
 .marquee__row--reverse {
   background-color: var(--c-pink);
