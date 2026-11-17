@@ -114,6 +114,7 @@ function highlightWords() {
     }
   })
 
+  lead.innerHTML = html
   let spans = lead.querySelectorAll('.about__word')
 
   window.addEventListener('scroll', () => {
@@ -124,8 +125,6 @@ function highlightWords() {
     let p = Math.max(0, Math.min(progress, 1))
     let activeCount = Math.round(p * spans.length)
 
-    console.log(progress)
-
     spans.forEach((span, index) => {
       if (index < activeCount) {
         span.classList.add('about__word--active')
@@ -134,6 +133,4 @@ function highlightWords() {
       }
     })
   })
-
-  lead.innerHTML = html
 }
