@@ -361,3 +361,47 @@ img + .article__content--header {
 .form__input:user-invalid {
   border-bottom-color: #b3261e;
 }
+
+/* бегущие строки */
+.marquee {
+  overflow-x: hidden;
+  padding: clamp(40px, 6vw, 80px) 0;
+}
+.marquee__row {
+  display: flex;
+  padding: clamp(10px, 1.4vw, 20px) 0;
+  background-color: var(--c-green);
+  color: var(--c-cream);
+  transform: rotate(-3deg);
+  width: 110%;
+  margin-left: -5%;
+}
+.marquee__row--reverse {
+  background-color: var(--c-pink);
+  color: var(--c-green);
+  transform: rotate(2deg);
+  position: relative;
+  z-index: -1;
+}
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 30rem;
+}
+.marquee__item:nth-of-type(1) {
+  margin-left: 30rem;
+}
+.marquee__item {
+  font-weight: 800;
+  font-size: clamp(22px, 2vw, 66px);
+  line-height: 1.1;
+  width: fit-content;
+  display: inline;
+}
+.marquee__flower {
+  color: var(--c-pink);
+  font-size: clamp(24px, 4vw, 64px);
+}
+.marquee__row--reverse .marquee__flower {
+  color: var(--c-cream);
+}
