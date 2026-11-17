@@ -1,6 +1,7 @@
 checkElements()
 headerScroll()
 moveMarquee()
+highlightWords()
 
 // для анимации элементов
 function checkElements() {
@@ -96,4 +97,43 @@ function moveMarquee() {
       })
     })
   }, 15)
+}
+
+//отдебажить, не видно заливку
+//перекрашиваем слова по скроллу в секции о проекте
+function highlightWords() {
+  let lead = document.querySelector('.about__lead')
+  let words = lead.innerText.split(' ')
+  let html = ''
+
+  words.forEach((word) => {
+    if (word.toLowerCase().includes('цветоч')) {
+      html += `<span class="about__word about__word--accent">${word}</span> `
+    } else {
+      html += `<span class="about__word">${word}</span> `
+    }
+  })
+
+  let spans = lead.querySelectorAll('.about__word')
+
+  window.addEventListener('scroll', () => {
+    let rect = lead.getBoundingClientRect()
+    let progress =
+      (window.innerHeight * 0.85 - rect.top) /
+      (rect.height + window.innerHeight * 0.3)
+    let p = Math.max(0, Math.min(progress, 1))
+    let activeCount = Math.round(p * spans.length)
+
+    console.log(progress)
+
+    spans.forEach((span, index) => {
+      if (index < activeCount) {
+        span.classList.add('about__word--active')
+      } else {
+        span.classList.remove('about__word--active')
+      }
+    })
+  })
+
+  lead.innerHTML = html
 }
