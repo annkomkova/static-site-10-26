@@ -14,6 +14,18 @@
   --gap: clamp(16px, 4vw, 56px);
   --radius: clamp(16px, 2vw, 28px);
 }
+.page--dark {
+  --bg: var(--c-green);
+  --main: var(--c-cream);
+}
+.page--pink {
+  --bg: var(--c-pink);
+  --main: var(--c-green);
+}
+.page--light {
+  --bg: var(--c-cream);
+  --main: var(--c-green);
+}
 html {
   font-size: calc(1vw / 14.4);
   scroll-behavior: smooth;
@@ -24,9 +36,12 @@ body {
 }
 .index {
   font-family: 'Manrope', Arial, Helvetica, sans-serif;
-  background-color: var(--c-cream);
-  color: var(--c-green);
+  background-color: var(--bg);
+  color: var(--main);
   line-height: 1.5;
+  transition:
+    background-color 0.6s ease-out,
+    color 0.6s ease-out;
 }
 h1,
 h2 {
@@ -222,7 +237,7 @@ img + .article__content--header {
   gap: 16rem;
   padding-bottom: 20rem;
   margin-bottom: clamp(40px, 6vw, 80px);
-  border-bottom: 1px solid var(--c-green);
+  border-bottom: 1px solid var(--main);
   font-size: 14rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -267,7 +282,7 @@ img + .article__content--header {
 .hero__flower {
   display: inline-block;
   padding-left: 14rem;
-  color: var(--c-pink);
+  color: var(--c-butter);
   animation: rotate 10s linear infinite;
 }
 .split__word {
@@ -554,10 +569,10 @@ img + .article__content--header {
   align-items: center;
   gap: 24rem;
   padding: clamp(24px, 3vw, 48px);
-  border-top: 1px solid var(--c-green);
+  border-top: 1px solid var(--main);
 }
 .soon__item:last-child {
-  border-bottom: 1px solid var(--c-green);
+  border-bottom: 1px solid var(--main);
 }
 .soon__index {
   font-size: 14rem;
@@ -584,7 +599,7 @@ img + .article__content--header {
   align-items: center;
   gap: 10rem;
   padding: 8rem 20rem;
-  border: 1px solid var(--c-green);
+  border: 1px solid var(--main);
   border-radius: var(--radius);
   text-transform: uppercase;
 }
@@ -695,7 +710,7 @@ img + .article__content--header {
   width: 64rem;
   height: 64rem;
   border-radius: 100%;
-  border: 2px solid var(--c-green);
+  border: 2px solid var(--main);
   background: transparent;
   font-size: 22rem;
   cursor: pointer;
@@ -704,8 +719,8 @@ img + .article__content--header {
   text-decoration: none;
 }
 .footer__up:hover {
-  background-color: var(--c-green);
-  color: var(--c-cream);
+  background-color: var(--main);
+  color: var(--bg);
 }
 .footer__bottom {
   display: flex;

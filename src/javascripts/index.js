@@ -5,6 +5,7 @@ highlightWords()
 countNumbers()
 move3dCard()
 showPreviewBlob()
+changeTheme()
 
 // для анимации элементов
 function checkElements() {
@@ -207,6 +208,37 @@ function showPreviewBlob() {
 
     item.addEventListener('mouseleave', () => {
       blob.classList.remove('preview--active')
+    })
+  })
+}
+
+// меняем тему по скроллу
+function changeTheme() {
+  let sections = document.querySelectorAll('.theme')
+
+  window.addEventListener('scroll', () => {
+    let middle = window.innerHeight / 2
+
+    sections.forEach((section) => {
+      let rect = section.getBoundingClientRect()
+
+      if (rect.top < middle && rect.bottom > middle) {
+        document.body.classList.remove(
+          'page--dark',
+          'page--pink',
+          'page--light'
+        )
+
+        if (section.classList.contains('theme--pink')) {
+          document.body.classList.add('page--pink')
+        }
+        if (section.classList.contains('theme--dark')) {
+          document.body.classList.add('page--dark')
+        }
+        if (section.classList.contains('theme--light')) {
+          document.body.classList.add('page--light')
+        }
+      }
     })
   })
 }
