@@ -3,6 +3,7 @@ headerScroll()
 moveMarquee()
 highlightWords()
 countNumbers()
+move3dCard()
 
 // для анимации элементов
 function checkElements() {
@@ -166,5 +167,24 @@ function countNumbers() {
         }, 50)
       }
     })
+  })
+}
+
+// 3-d наклон карточки за движением мышки
+function move3dCard() {
+  let link = document.querySelector('.card__link')
+  let media = link.querySelector('.card__media')
+
+  link.addEventListener('mousemove', (event) => {
+    let rect = media.getBoundingClientRect()
+
+    let x = (event.clientX - rect.left) / rect.width - 0.5
+    let y = (event.clientY - rect.top) / rect.height - 0.5
+
+    media.style.transform = `perspective(1000px) rotateX(${-y * 10}deg) rotateY(${x * 10}deg)`
+  })
+
+  link.addEventListener('mouseleave', () => {
+    media.style.transform = ``
   })
 }
