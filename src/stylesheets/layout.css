@@ -541,3 +541,108 @@ img + .article__content--header {
 .card__flower--one .flower__center {
   fill: var(--c-lime);
 }
+
+/* раздел coming soon */
+.articles__soon {
+  margin-top: clamp(40px, 6vw, 80px);
+}
+.soon__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80rem 1fr auto;
+  align-items: center;
+  gap: 24rem;
+  padding: clamp(24px, 3vw, 48px);
+  border-top: 1px solid var(--c-green);
+}
+.soon__item:last-child {
+  border-bottom: 1px solid var(--c-green);
+}
+.soon__index {
+  font-size: 14rem;
+  font-weight: 700;
+}
+.soon__title {
+  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: clamp(20px, 2.6vw, 42px);
+  line-height: 1.1;
+  opacity: 0.5;
+  filter: blur(2px);
+  transition:
+    transform 0.6s ease-out,
+    opacity 0.6s ease;
+}
+.soon__item:hover .soon__title {
+  opacity: 1;
+  filter: none;
+  transform: translateX(16px);
+}
+.soon__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10rem;
+  padding: 8rem 20rem;
+  border: 1px solid var(--c-green);
+  border-radius: var(--radius);
+  text-transform: uppercase;
+}
+.soon__status::before {
+  content: '';
+  width: 8rem;
+  height: 8rem;
+  border-radius: 100%;
+  background-color: var(--c-pink);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.soon__blob {
+  --preview-color: var(--c-pink);
+  --preview-size: clamp(160px, 18vw, 260px);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: var(--preview-size);
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  transition: transform 0.4s ease-out;
+}
+.preview--lime {
+  --preview-color: var(--c-lime);
+}
+.preview--peach {
+  --preview-color: var(--c-peach);
+}
+.preview--liliac {
+  --preview-color: var(--c-liliac);
+}
+.preview__blob {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0) rotate(-40deg);
+  transition: transform 0.6s ease-out;
+}
+.preview__path {
+  fill: var(--preview-color);
+  transition: fill 0.4s ease;
+}
+.preview__emoji {
+  position: relative;
+  font-size: clamp(56px, 6vw, 96px);
+  color: var(--c-cream);
+  opacity: 0.8;
+  transform: scale(0);
+  transition: transform 0.6s ease-out;
+}
+.preview--active .preview__blob {
+  transform: scale(1) rotate(0);
+}
+.preview--active .preview__emoji {
+  transform: scale(1);
+  animation: rotate 8s linear infinite;
+}

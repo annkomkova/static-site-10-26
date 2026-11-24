@@ -4,6 +4,7 @@ moveMarquee()
 highlightWords()
 countNumbers()
 move3dCard()
+showPreviewBlob()
 
 // для анимации элементов
 function checkElements() {
@@ -186,5 +187,26 @@ function move3dCard() {
 
   link.addEventListener('mouseleave', () => {
     media.style.transform = ``
+  })
+}
+
+//анимированный курсор со сменой цвета в разделе превью
+function showPreviewBlob() {
+  let blob = document.querySelector('.soon__blob')
+  let items = document.querySelectorAll('.soon__item')
+  let colors = ['pink', 'liliac', 'peach', 'lime']
+
+  document.addEventListener('mousemove', (event) => {
+    blob.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`
+  })
+
+  items.forEach((item, index) => {
+    item.addEventListener('mouseenter', () => {
+      blob.className = `soon__blob preview--active preview--${colors[index]}`
+    })
+
+    item.addEventListener('mouseleave', () => {
+      blob.classList.remove('preview--active')
+    })
   })
 }
