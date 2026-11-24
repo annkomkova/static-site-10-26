@@ -16,6 +16,7 @@
 }
 html {
   font-size: calc(1vw / 14.4);
+  scroll-behavior: smooth;
 }
 body {
   font-family: 'PT Root UI', Arial, Helvetica, sans-serif;
@@ -645,4 +646,75 @@ img + .article__content--header {
 .preview--active .preview__emoji {
   transform: scale(1);
   animation: rotate 8s linear infinite;
+}
+.footer {
+  padding: clamp(64px, 8vw, 120px) var(--gap);
+  overflow: hidden;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--gap);
+  align-items: start;
+}
+.footer__text {
+  font-size: 20rem;
+  font-weight: 500;
+}
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+.footer__link {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  width: fit-content;
+}
+.footer__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s ease-out;
+}
+.footer__link:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+.footer__up {
+  display: grid;
+  place-items: center;
+  width: 64rem;
+  height: 64rem;
+  border-radius: 100%;
+  border: 2px solid var(--c-green);
+  background: transparent;
+  font-size: 22rem;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  color: inherit;
+  text-decoration: none;
+}
+.footer__up:hover {
+  background-color: var(--c-green);
+  color: var(--c-cream);
+}
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__logo {
+  font-size: max(54px, min(12vw, 250px));
+  font-weight: 800;
+  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
+  line-height: 1;
+  margin: 100rem 0;
 }
