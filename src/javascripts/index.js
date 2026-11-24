@@ -2,6 +2,7 @@ checkElements()
 headerScroll()
 moveMarquee()
 highlightWords()
+countNumbers()
 
 // для анимации элементов
 function checkElements() {
@@ -99,7 +100,6 @@ function moveMarquee() {
   }, 15)
 }
 
-//отдебажить, не видно заливку
 //перекрашиваем слова по скроллу в секции о проекте
 function highlightWords() {
   let lead = document.querySelector('.about__lead')
@@ -130,6 +130,40 @@ function highlightWords() {
         span.classList.add('about__word--active')
       } else {
         span.classList.remove('about__word--active')
+      }
+    })
+  })
+}
+
+// подсчитываем числа от 0 до n при первом скролле
+function countNumbers() {
+  let numbers = document.querySelectorAll('.about__number')
+
+  numbers.forEach((number) => {
+    let target = parseInt(number.innerText)
+    let started = false
+
+    number.innerText = 0
+
+    window.addEventListener('scroll', () => {
+      let rect = number.getBoundingClientRect()
+
+      if (rect.top < window.innerHeight * 0.8 && !started) {
+        started = true
+
+        let current = 0
+        let step = Math.ceil(target / 60)
+
+        let interval = setInterval(() => {
+          current = current + step
+
+          if (current >= target) {
+            current = target
+            clearInterval(interval)
+          }
+
+          number.innerText = current
+        }, 50)
       }
     })
   })

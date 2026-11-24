@@ -425,6 +425,40 @@ img + .article__content--header {
 .about__word--active.about__word--accent {
   color: var(--c-peach);
 }
+.about__list {
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  margin-top: clamp(40px, 6vw, 80px);
+}
+.about__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+  padding: clamp(24px, 2.4vw, 40px);
+  border: 1px solid var(--c-green);
+  border-radius: var(--radius);
+  width: 33%;
+  transition:
+    background-color 0.9s ease-out,
+    transform 0.9s ease-out;
+}
+.about__item:hover {
+  background-color: var(--c-pink);
+  transform: rotate(-1deg) translateY(-8px);
+  transition:
+    background-color 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+.about__number {
+  font-weight: 800;
+  font-size: clamp(56px, 7vw, 120px);
+  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
+}
+.about__title {
+  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
+  font-size: 20rem;
+}
 
 /* секция со статьями */
 .card__link {
